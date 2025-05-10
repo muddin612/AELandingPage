@@ -110,11 +110,7 @@
     </div>
 
     <script>
-      // Set the launch date (3 months from now)
-      const launchDate = new Date();
-      launchDate.setMonth(launchDate.getMonth() + 3);
-
-      // Update the countdown every second
+      const launchDate = new Date("August 10, 2025 00:00:00").getTime();
       const countdown = setInterval(function () {
         const now = new Date().getTime();
         const distance = launchDate - now;
@@ -139,8 +135,12 @@
 
         if (distance < 0) {
           clearInterval(countdown);
-          document.getElementById("countdown").innerHTML =
-            "Our website is now live!";
+          const countdownSection =
+            document.querySelector(".countdown").parentElement.parentElement;
+          if (countdownSection) {
+            countdownSection.innerHTML =
+              '<div class="bg-black rounded-lg p-6 text-center"><h2 class="text-2xl font-bold text-white">Our website is now live!</h2></div>';
+          }
         }
       }, 1000);
     </script>
