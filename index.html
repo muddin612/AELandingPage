@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favcon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/styles.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>American Elite Executive Service</title>
+    <style>
+      .countdown {
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased">
+    <div class="min-h-screen flex flex-col justify-between">
+      <!-- Main Content -->
+      <main
+        class="flex-grow flex flex-col items-center justify-center px-6 text-center bg-slate-200 py-5"
+      >
+        <div class="mb-8">
+          <img
+            src="/AE_Header_Logo.png"
+            alt="American Elite Executive Service Logo"
+            class="max-w-full h-auto mx-auto"
+            width="400"
+          />
+        </div>
+        <div
+          class="bg-black rounded-lg p-6 md:p-8 mb-12 max-w-md w-full shadow-xl"
+        >
+          <h2 class="text-2xl font-bold mb-4 text-white">
+            Our Website is Coming Soon
+          </h2>
+          <p class="mb-6 text-gray-200">
+            We're crafting a new experience for you. In the meantime, please
+            book your ride directly:
+          </p>
+
+          <div class="space-y-4">
+            <a
+              href="tel:5512756604"
+              class="flex items-center justify-center space-x-2 py-3 px-4 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-200 transition w-full"
+            >
+              <i class="fas fa-phone"></i>
+              <span>(551) 275-6604</span>
+            </a>
+
+            <a
+              href="sms:5512756604"
+              class="flex items-center justify-center space-x-2 py-3 px-4 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-600 transition w-full"
+            >
+              <i class="fas fa-comment"></i>
+              <span>Text Us</span>
+            </a>
+
+            <a
+              href="mailto:americaneliteexecutiveservice@gmail.com"
+              class="flex items-center justify-center space-x-2 py-3 px-4 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-600 transition w-full"
+            >
+              <i class="fas fa-envelope"></i>
+              <span>Email Us</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="max-w-lg w-full">
+          <h3 class="text-xl font-bold mb-4 text-gray-900">
+            Full Website Launches In:
+          </h3>
+          <div class="grid grid-cols-4 gap-2 countdown">
+            <div class="bg-black rounded p-3 shadow-md">
+              <div class="text-3xl font-bold text-white" id="days">00</div>
+              <div class="text-xs uppercase tracking-wide text-gray-300">
+                Days
+              </div>
+            </div>
+            <div class="bg-black rounded p-3 shadow-md">
+              <div class="text-3xl font-bold text-white" id="hours">00</div>
+              <div class="text-xs uppercase tracking-wide text-gray-300">
+                Hours
+              </div>
+            </div>
+            <div class="bg-black rounded p-3 shadow-md">
+              <div class="text-3xl font-bold text-white" id="minutes">00</div>
+              <div class="text-xs uppercase tracking-wide text-gray-300">
+                Minutes
+              </div>
+            </div>
+            <div class="bg-black rounded p-3 shadow-md">
+              <div class="text-3xl font-bold text-white" id="seconds">00</div>
+              <div class="text-xs uppercase tracking-wide text-gray-300">
+                Seconds
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer
+        class="py-6 px-6 sm:px-10 md:px-16 lg:px-20 bg-black text-gray-300 text-center"
+      >
+        <p>
+          &copy; 2025 American Elite Executive Service. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Set the launch date (3 months from now)
+      const launchDate = new Date();
+      launchDate.setMonth(launchDate.getMonth() + 3);
+
+      // Update the countdown every second
+      const countdown = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24) - 1);
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").innerText = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").innerText = seconds
+          .toString()
+          .padStart(2, "0");
+
+        if (distance < 0) {
+          clearInterval(countdown);
+          document.getElementById("countdown").innerHTML =
+            "Our website is now live!";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
